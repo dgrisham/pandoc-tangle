@@ -13,8 +13,8 @@
 --- The default tangler imports `Pandoc` and the library tangler to implement some
 --- simple defaults.
 
---- Run `stack init`, followed by `stack build` to build the executable. You can run
---- `stack install` to place it at `~/.local/bin`.
+--- Run `stack setup`, followed by `stack build` to build the executable. You can
+--- run `stack install` to place it at `~/.local/bin`.
 
 --- See `pandoc-tangle --help` for usage.
 
@@ -23,7 +23,6 @@ module Main where
 
 import Data.List ( intercalate )
 import Data.List.Split ( splitOn )
-import Data.Monoid ((<>))
 
 import System.IO ( getContents )
 
@@ -31,7 +30,7 @@ import Options.Applicative as OPT ( execParser , Parser , ParserInfo
                                   , strOption , subparser , command , argument
                                   , long , short , metavar , help
                                   , helper , info , fullDesc , progDesc , header
-                                  , many , some , str , optional , switch
+                                  , many , some , (<>) , str , optional , switch
                                   )
 
 import Text.Pandoc         ( Pandoc(Pandoc), Block(CodeBlock, Header, Null, Div)
